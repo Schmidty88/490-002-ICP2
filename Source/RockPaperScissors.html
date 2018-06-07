@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<h1> Welcome to the Rock Paper Scissors Game!</h1>
+</head>
+<body>
+<script>
+
+    function buttonCode() {
+        var userChoice = document.getElementById("myInput");
+        var computersChoice = Math.random();
+        if (computersChoice < 0.35) {
+            computersChoice = "scissors";
+        }
+        else if (computersChoice <= 0.7) {
+            computersChoice = "paper";
+        }
+        else {
+            computersChoice = "rock";
+        }
+
+        document.write("<p> Computer got:" + " " + computersChoice, "</p>")
+        document.write("<p> The User Got:" + " " + userChoice.value.toLowerCase(), "</p>")
+
+        var compare = function (choice1, choice2) {
+            if (choice1 == choice2) {
+                return "Its a tie!"
+            }
+            if (choice1 == "rock") {
+                if (choice2 == "scissors") {
+                    return "You Win!";
+                }
+                else {
+                        return "Computer Wins";
+                }
+            }
+            if (choice1 == "paper") {
+                if (choice2 == "rock") {
+                    return "Computer Wins!";
+                }
+                else {
+                        return "You Win!";
+
+                }
+            }
+            if (choice1 == "scissors") {
+                if (choice2 == "rock") {
+                    return "Computer Wins!";
+                }
+                else {
+
+                        return "You Win!";
+                }
+            }
+        };
+
+        var results = compare(userChoice.value.toLowerCase(), computersChoice);
+        document.write(results);
+    }
+</script>
+
+
+<input id = "myInput" value = "rock, paper, scissors">
+<button id = "Play" onclick = "buttonCode()">play</button>
+</body>
+</html>
